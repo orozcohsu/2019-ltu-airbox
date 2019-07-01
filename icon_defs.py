@@ -1,7 +1,7 @@
 #2019-06-29
 #Orozco change sd to full path
 #
-sd = '/home/pi/Weather/icons/'	# Icon sub-directory name.
+sd = '/home/pi/2019-ltu-airbox/icons/'	# Icon sub-directory name.
 
 # The forcast includes an icon index number.  Below is an ordered array that has the
 # icon filename for the icon index.
