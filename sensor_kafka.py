@@ -34,6 +34,7 @@ while True:
         #send data to kafka
         try:
             t=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            rd=random()
             if temperature != "" and humidity != "":
                 #rd for ksql join key
                 payload = {"records":[{ "value": { "device_id":id,"timestamp":t,"Temperature":str(temperature),"rd":str(rd) }}]}
@@ -45,8 +46,8 @@ while True:
                 else:
                     print "temperature updated"
                 
-                payload = {"records":[{ "value": { "device_id":id,"timestamp":t,"Humidity":str(humidity),"rd",str(rd) }}]}
-                r = requests.post(temp, data=json.dumps(payload), headers=headers)
+                payload = {"records":[{ "value": { "device_id":id,"timestamp":t,"Humidity":str(humidity),"rd":str(rd) }}]}
+                r = requests.post(humd, data=json.dumps(payload), headers=headers)
                 if r.status_code != 200:
                     print "Status Code(temp): " + str(r.status_code)
                     print r.text
