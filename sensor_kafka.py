@@ -21,8 +21,8 @@ instance = dht11.DHT11(pin=17)
 id="001"
 
 #topic
-temp="http://192.168.100.6:8082/topics/temperature"
-humd="http://192.168.100.6:8082/topics/humidity"
+temp="http://192.168.43.196:8082/topics/temperature"
+humd="http://192.168.43.196:8082/topics/humidity"
 headers = { "Content-Type" : "application/vnd.kafka.json.v2+json" }
 
 while True:
@@ -31,6 +31,8 @@ while True:
         #get sensor data
         temperature = "%0.2f" % float(result.temperature)
         humidity = "%d" % result.humidity
+        print("t:",temperature)
+        print("h:",humidity)
         #send data to kafka
         try:
             t=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")

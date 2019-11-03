@@ -19,8 +19,6 @@ GPIO.cleanup()
 # BOARD: 11
 #instance = dht11.DHT11(pin=17)
 
-#DHT22
-#humidity, temperature = Adafruit_DHT.read_retry(22, 0)
 #device id for join later
 id="001"
 
@@ -37,8 +35,8 @@ while True:
         #temperature = "%0.2f" % float(result.temperature)
         #humidity = "%d" % result.humidity
 
-        #DHT22
-        humidity, temperature = Adafruit_DHT.read_retry(22, 0)
+        #DHT22(GPIO0=BCM17)
+        humidity, temperature = Adafruit_DHT.read_retry(22, 17)
 
         #send data to kafka
         try:
